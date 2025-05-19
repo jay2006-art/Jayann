@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donels Beach Resort Promo</title>
+
+  <style>
+   body {
+  margin: 0;
+  font-family: 'Dancing Sans', dancing-serif;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  color: #333;
+}
+
+
+    .video-wrapper {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.3s ease;
+      display: none;
+    }
+
+    .video-wrapper.visible {
+      display: block;
+    }
+
+    .header {
+      background: linear-gradient(to right, #FFB84D, #FF7F50);
+      color: white;
+      padding: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 100%;
+    }
+
+    .announcement {
+      background: rgba(255, 255, 255, 0.3);
+      border-left: 5px solid #FF7F50;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #333;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .announcement h2 {
+      color: #FF7F50;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
+      position: relative;
+      background-color: black;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      border-bottom: 2px solid #FFB84D;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 180, 216, 0.85);
+      border: none;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .play-btn:hover {
+      background: #FF7F50;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .play-btn.hidden {
+      display: none;
+    }
+
+    .details {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .details h2 {
+      font-size: 1.8rem;
+      color: #FF7F50;
+    }
+
+    .details p {
+      font-size: 1rem;
+      margin: 1rem 0;
+    }
+
+    .book-btn {
+      background-color: #FFB84D;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background-color: #FF7F50;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      color: #FF7F50;
+      margin: 0 0.5rem;
+      font-size: 1.4rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #FFB84D;
+    }
+
+    .social-icons i {
+      padding: 0.3rem;
+    }
+
+    #showVideoBtn {
+      background-color: #FFB84D;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    #showVideoBtn:hover {
+      background-color: #FF7F50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">Welcome to Donels Beach Resort</div>
+ <button id="showVideoBtn">Watch Promo Video</button>
+
+  <div class="video-wrapper" id="videoWrapper">
+    <div class="video-container">
+      <video id="promoVideo" poster="beach-thumbnail.jpg">
+        <source src="beach-resort-promo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <button id="playButton" class="play-btn">&#9658;</button>
+    </div>
+  </div>
+
+  <div class="details">
+    <h2>Discover Your Private Paradise at Donels Beach Resort</h2>
+    <p>
+      Escape to Donels Beach Resort, where stunning white sand beaches and crystal-clear waters await you. Enjoy a variety of activities including refreshing dips in our infinity pools, exciting disco nights, and relaxing under the shade of our tree cottages. 
+      For a unique experience, hop on our floatable water rides as they drift through the sparkling ocean. Whether you're here for romance, adventure, or relaxation, Donels Beach Resort offers something for everyone.
+    </p>
+
+    <h3>Highlights & Amenities:</h3>
+    <ul>
+      <li>Infinity pools</li>
+      <li>Cottages under the tree</li>
+      <li>Exciting disco nights</li>
+      <li>Floatable ocean rides</li>
+      <li>Available for overnight</li>
+    </ul>
+    
+    <h3>Expenses</h3>
+    <ul>
+        <h4>Entrances:</h4>
+        <li>Pool, 150, (per head)</li>
+        <li>beach, 50, (per head)</li>
+        <h4>Cottages:</h4>
+        <li>Big for only 1000 </li>
+        <li>Small for only 500</li>
+        <h4>Open</h4>
+        <li>Monday-Sunday</li>
+        <h4>For overnight:</h4>
+        <li>6pm-6am</li>
+    </ul>
+
+    <a href="#booking" class="book-btn">Book Now</a>
+  </div>
+
+  <div class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> Lower Bayao, Tukuran Zamboanga Del Ser</p>
+    <p><strong>Phone:</strong>0918 880 0426 </p>
+    <p><strong>Facebook:</strong> Donels beach resort </p>
+
+    <div class="social-icons">
+      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById("promoVideo");
+    const playButton = document.getElementById("playButton");
+    const videoWrapper = document.getElementById("videoWrapper");
+    const showVideoBtn = document.getElementById("showVideoBtn");
+
+    showVideoBtn.addEventListener("click", () => {
+      videoWrapper.classList.add("visible");
+      showVideoBtn.style.display = "none";
+    });
+
+    playButton.addEventListener("click", () => {
+      video.play();
+      playButton.classList.add("hidden");
+    });
+
+    video.addEventListener("click", () => {
+      if (!video.paused) {
+        video.pause();
+        playButton.classList.remove("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>
